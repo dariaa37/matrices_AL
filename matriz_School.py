@@ -166,7 +166,7 @@ for colum in range(0, size):
     r3[colum] /= deno3
     r4[colum] /= deno4
 
-print(" MATRIZ COMPLETADA ".center(50,"=") +"\n")
+print(" MATRIZ IDENTIDAD ".center(50,"=") +"\n")
 theMatrix(matrix)
 
 print(f"Result ->\t W = {r1[4]}\t X = {r2[4]}\t Y = {r3[4]}\t Z = {r4[4]}")
