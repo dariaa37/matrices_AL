@@ -2,6 +2,20 @@
 # Program:  Matrix con funciones y fors para resolver por columnas
 # Name:     Karla Díaz Aguilar
 
+def cerosLeft(matriz,fInicio,tamañoM,tamañoF,row,colum):        # Vuelve ceros columnas en diagonal izquierda
+    for fila in range(fInicio,tamañoM):  # Se repite 3 veces a partir de 1
+        coeficiente = matriz[fila][colum]*(-1)/row[colum]
+        print(f"This is coeficiente: {coeficiente}   Fila: {fila}  f1o: {f1[0]}")
+        for columna in range(0,tamañoF):       # Se repite 4 veces
+            matriz[fila][columna] += row[columna] * coeficiente
+
+def cerosRight(matriz,fFinal,tamañoM,tamañoF,row,colum):        # Vuelve 0 columnas diagonal derecha
+    for fila in range(tamañoM-fFinal):  # Se repite 3 veces a partir de 1
+        coeficiente = matriz[fila][colum]*(-1)/row[colum]
+        print(f"This is coeficiente: {coeficiente}   Fila: {fila}  f1o: {f1[0]}")
+        for columna in range(0,tamañoF):       # Se repite 4 veces
+            matriz[fila][columna] += row[columna] * coeficiente
+
 def lonelyCero(cero,f,coef,tam):
     for i in range(0,tam):
         cero[i] += f[i] * coef
@@ -35,24 +49,26 @@ for i in range(sizeM):
 print(" > Vuelve el sistema una matriz < ".center(95,"-") +"\n")
 theMatrix(matrix)
 
-# COLUMNA 0 - Ceros 1,2,3
-for fila in range(1,sizeM):  # Se repite 3 veces a partir de 1
-    coeficiente = matrix[fila][0]*(-1)/f1[0]
-    print(f"This is coeficiente: {coeficiente}   Fila: {fila}  f1o: {f1[0]}")
-    for columna in range(0,sizeF):       # Se repite 4 veces
-        matrix[fila][columna] += f1[columna] * coeficiente
+# # COLUMNA 0 - Ceros 1,2,3
+# for fila in range(1,sizeM):  # Se repite 3 veces a partir de 1
+#     coeficiente = matrix[fila][0]*(-1)/f1[0]
+#     print(f"This is coeficiente: {coeficiente}   Fila: {fila}  f1o: {f1[0]}")
+#     for columna in range(0,sizeF):       # Se repite 4 veces
+#         matrix[fila][columna] += f1[columna] * coeficiente
 
+cerosLeft(matrix,1,sizeM,sizeF,f1,0)
 print(" CERO 1,2 y 3: Fila 2,4 y4 - Fila 1 * coeficiente ".center(95,"·")+"\n")
 theMatrix(matrix)
 
 
-# COLUMNA 1 - Ceros 4 y 5
-for fila in range(2,sizeM):  # Se repite 3 veces a partir de 1
-    coeficiente = matrix[fila][1]*(-1)/f2[1]
-    print(f"This is coeficiente: {coeficiente}   Fila: {fila}  f1o: {f1[0]}")
-    for columna in range(0,sizeF):       # Se repite 4 veces
-        matrix[fila][columna] += f2[columna] * coeficiente
+# # COLUMNA 1 - Ceros 4 y 5
+# for fila in range(2,sizeM):  # Se repite 3 veces a partir de 1
+#     coeficiente = matrix[fila][1]*(-1)/f2[1]
+#     print(f"This is coeficiente: {coeficiente}   Fila: {fila}  f1o: {f1[0]}")
+#     for columna in range(0,sizeF):       # Se repite 4 veces
+#         matrix[fila][columna] += f2[columna] * coeficiente
 
+cerosLeft(matrix,2,sizeM,sizeF,f2,1)
 print(" CERO 4 y 5: Fila 3 y 4 - Fila 2 * coeficiente ".center(95,"·")+"\n")
 theMatrix(matrix)
 
@@ -65,24 +81,26 @@ print(" CERO 6: Fila 4 - Fila 3 * coeficiente ".center(95,"·")+"\n")
 theMatrix(matrix) 
 
 
-# COLUMNA 3 - Ceros 7,8,9
-for fila in range(sizeM-1):  # Se repite 3 veces a partir de 1
-    coeficiente = matrix[fila][3]*(-1)/f4[3]
-    print(f"This is coeficiente: {coeficiente}   Fila: {fila}  f1o: {f1[0]}")
-    for columna in range(0,sizeF):       # Se repite 4 veces
-        matrix[fila][columna] += f4[columna] * coeficiente
+# # COLUMNA 3 - Ceros 7,8,9
+# for fila in range(sizeM-1):  # Se repite 3 veces a partir de 1
+#     coeficiente = matrix[fila][3]*(-1)/f4[3]
+#     print(f"This is coeficiente: {coeficiente}   Fila: {fila}  f1o: {f1[0]}")
+#     for columna in range(0,sizeF):       # Se repite 4 veces
+#         matrix[fila][columna] += f4[columna] * coeficiente
 
+cerosRight(matrix,1,sizeM,sizeF,f4,3)
 print(" CERO 7,8 y 9: Fila 1,2 y 3 - Fila 4 * coeficiente ".center(95,"·")+"\n")
 theMatrix(matrix)
 
 
-# COLUMNA 2 - Ceros 10 y 11
-for fila in range(sizeM-2):  # Se repite 3 veces a partir de 1
-    coeficiente = matrix[fila][2]*(-1)/f3[2]
-    print(f"This is coeficiente: {coeficiente}   Fila: {fila}  f1o: {f1[2]}")
-    for columna in range(0,sizeF):       # Se repite 4 veces
-        matrix[fila][columna] += f3[columna] * coeficiente
+# # COLUMNA 2 - Ceros 10 y 11
+# for fila in range(sizeM-2):  # Se repite 3 veces a partir de 1
+#     coeficiente = matrix[fila][2]*(-1)/f3[2]
+#     print(f"This is coeficiente: {coeficiente}   Fila: {fila}  f1o: {f1[2]}")
+#     for columna in range(0,sizeF):       # Se repite 4 veces
+#         matrix[fila][columna] += f3[columna] * coeficiente
 
+cerosRight(matrix,2,sizeM,sizeF,f3,2)
 print(" CERO 10 y 11: Fila 1 y 2 - Fila 3 * coeficiente ".center(95,"·")+"\n")
 theMatrix(matrix)
 
