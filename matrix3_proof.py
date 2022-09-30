@@ -7,9 +7,9 @@ def theMatrix(keanu):
 # Define matrix
 
 matrix = [
-    [1, 1, 1, -6],
-    [2, 1, -1, -1],
-    [1, -2, 3, -6],
+    [-4, 1, 0, -18],
+    [1, -3, 1, 0],
+    [0, 1, -2, 0],
 ]
 
 # Variable for equations size

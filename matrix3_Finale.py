@@ -12,9 +12,9 @@ def theMatrix(keanu):
 # Define matrix
 
 matrix = [
-    [1, 1, 1, -6],
-    [2, 1, -1, -1],
-    [1, -2, 3, -6],
+    [-11, 2, 0, -135],
+    [2, -7, 2, 0],
+    [0, 1, -4, 0],
 ]
 
 # Variable for equations size
