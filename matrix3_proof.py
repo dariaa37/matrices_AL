@@ -7,9 +7,9 @@ def theMatrix(keanu):
 # Define matrix
 
 matrix = [
-    [-4, 1, 0, -18],
-    [1, -3, 1, 0],
-    [0, 1, -2, 0],
+    [1,2,3,6],
+    [2,-3,2,14],
+    [3,1,-1,-2],
 ]
 
 # Variable for equations size
@@ -30,7 +30,7 @@ print(" > Vuelve el sistema una matriz < ".center(50,"-") +"\n")
 theMatrix(matrix)
 
 # CERO 1
-coeficiente = f2[0]*(-1)/f1[0]       # Divide 2/4 to got coef. and modify file 2
+coeficiente = -f2[0]/f1[0]       # Divide 2/4 to got coef. and modify file 2
 print(f"· Coeficiente: {coeficiente}") # PROFF
 
 for colum in range(0, size):
@@ -54,7 +54,7 @@ coeficiente = f3[1]*(-1)/f2[1]
 print(f"· Coeficiente: {coeficiente}") # PROFF
 
 for colum in range(0,size):
-    f3[colum] += f2[colum] * coeficiente
+    matrix[2][colum] += matrix[2][colum] * coeficiente
 
 print(" CERO 3: Fila 3 - Fila 2 * coeficiente ".center(50,"·")+"\n")
 theMatrix(matrix)

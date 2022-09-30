@@ -23,24 +23,32 @@ def lonelyCero(cero,f,coef,tam):
 def theMatrix(keanu):
     print('\n'.join([''.join(['\t{:7}'.format(item) for item in row])for row in keanu]) + "\t\n")
 
-# Define matrix
-
-matrixOriginal = [
-     [-2, 3, -8, -7, 6,	3, 5, 3, -98],
-     [7, -3, -4, 3, -3, -3, 4, 3, 89],
-     [3, -5, 3, 2, -3, -5, -4, 5, 71],
-     [3, 5, 4, 7, 3, -2, -6, -3, 73],
-     [6, 2, -2, 5, 2, -3, 1, -5, 62],
-     [-3, 2, 4, 8, 3, -5, 5, 6, 163],
-     [-6, 8, -6, -3, 4, -8, -2, 2, -63],
-     [-3, 4, 7, 7, -7, -6, 4, -8, 117]
-]
-
+# Define matrix ------------------------------------
+matrixOriginal = [[], [], [], [], [], [], [], []]
 matrix = copy.deepcopy(matrixOriginal)
+
+# Array for variables
 variable = []
 
-# Variable for equations size
+# Variable for matrix size
 sizeM = len(matrix)
+
+# Ingresa literales de la ecuación -----------------
+print(" Ingresa las VARIABLES de la matriz ".center(50,"-"))
+for i in range(sizeM):
+    variable.append(input(f"\t\tVariable {i+1}:\t"))
+
+# Ingresa ------------------------------------------
+for i in range(sizeM):
+    print(f"Ingresa datos de ecuación {i+1}".center(50,"-"))
+    for j in range(sizeM +1):
+        if j < sizeM:       # Solo imprime ecuaciones con literales
+            matrix[i].append(float(input(f"\t\tValor {variable[j]}:\t")))
+        else:
+            matrix[i].append(float(input(f"\t\tResultado:\t")))
+
+
+# Variable for equations size
 sizeF = len(matrix[0])
 
 # Define row (fila)
@@ -51,11 +59,6 @@ f5 = matrix[4]; f6 = matrix[5]; f7 = matrix[6]; f8 = matrix[7]
 for i in range(sizeM):
     for j in range (sizeF):
         matrix[i][j] = float(matrix[i][j])
-
-# Ingresar variables
-print(" Ingresa las VARIABLES de la matriz ".center(50,"-"))
-for i in range(sizeM):
-    variable.append(input(f"\t\tVariable {i+1}:\t"))
 
 # Part 1: Show the matrix
 print(" > Vuelve el sistema una matriz < ".center(100,"-") +"\n")
@@ -153,11 +156,11 @@ for colum in range(0, sizeF):
 print(" MATRIZ IDENTIDAD ".center(95,"=") +"\n")
 theMatrix(matrix)
 
-print(" RESULTADOS ".center(50,"="))
+print(" RESULTADOS ".center(95,"="))
 # Redondear (si se necesita)
 for i in range(0,sizeM):
     value = matrix[i][8]
-    print(f"\t\t   | {variable[i]} =  {round(value)} |")
+    print(f"\t\t| {variable[i]} =  {round(value)} |")
 
 # Sustituir en ecuaciones (comprobación)
 print("\n" + " COMPROBACIÓN POR SUSTITUCIÓN ".center(50,"="))
@@ -166,4 +169,5 @@ for i in range(0,sizeM):        # Accedo a cant de filas de matriz
     for j in range(0,sizeM):    # Accedo a elementos por fila
         result += matrixOriginal[i][j] * matrix[j][8]
     print(f"\t\tEcuación {i+1}:\t{round(result)}")
-
+theMatrix(matrixOriginal)
+theMatrix(matrix)

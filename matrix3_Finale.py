@@ -10,15 +10,30 @@ def theMatrix(keanu):
     print('\n'.join([''.join(['\t{:7}'.format(item) for item in row])for row in keanu]) + "\n")
 
 # Define matrix
+matrix = [[], [], []]
 
-matrix = [
-    [-11, 2, 0, -135],
-    [2, -7, 2, 0],
-    [0, 1, -4, 0],
-]
+# Array for variables
+variable = []
+
+# Variable for matrix size
+sizeM = len(matrix)
+
+# Ingresa literales de la ecuación -----------------
+print(" Ingresa las VARIABLES de la matriz ".center(50,"-"))
+for i in range(sizeM):
+    variable.append(input(f"\t\tVariable {i+1}:\t"))
+
+# Ingresa ------------------------------------------
+for i in range(sizeM):
+    print(f"Ingresa datos de ecuación {1}".center(50,"-"))
+    for j in range(sizeM +1):
+        if j < sizeM:       # Solo imprime ecuaciones con literales
+            matrix[i].append(float(input(f"\t\tValor {variable[j]}:\t")))
+        else:
+            matrix[i].append(float(input(f"\t\t\Resultado:\t")))
+
 
 # Variable for equations size
-sizeM = len(matrix)
 sizeF = len(matrix[0])
 
 # Define row (fila)
@@ -84,7 +99,8 @@ for colum in range(0, sizeF):
 print(" MATRIZ IDENTIDAD ".center(50,"=") +"\n")
 theMatrix(matrix)
 
+print(" RESULTADOS ".center(50,"="))
 # Redondear (si se necesita)
-x = f1[3];      y = f2[3];          z = f3[3]
-
-print(f"Result ->\t X = {round(x)}\t Y = {round(y)}\t Z = {round(z)}")
+for i in range(0,sizeM):
+    value = matrix[i][3]
+    print(f"\t\t| {variable[i]} =  {round(value)} |")
