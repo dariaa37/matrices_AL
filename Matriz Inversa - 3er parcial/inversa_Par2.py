@@ -2,9 +2,17 @@ def prettyMatrix(A):
     print('\n'+'\n'.join([''.join(['{:9.4}'.format(float(elemento)) for elemento in fila]) for fila in A])+'\n')
 
 sistema = [
-    [2, 0, 1],
-    [3, 0, 0],
-    [5, 1, 1]
+    # [2, 0, 1],
+    # [3, 0, 0],
+    # [5, 1, 1]
+
+    # [-3, 2, 0],
+    # [1, -1, 2],
+    # [-2, 1, 3]
+
+    [5, -2, 4],
+    [6, 7, -3],
+    [3, 0, 2]
 ]
 
 #prettyMatrix(sistema)
@@ -26,7 +34,7 @@ def determinante(a):
     return detA
 
 detA = determinante(sistema)
-#print("Determinante: "+str(detA))
+print("Determinante: "+str(detA))
 
 adjunta = [
     [0,0,0],
@@ -38,7 +46,7 @@ adjunta = [
         
         #adjunta[i][j] = (-1)^((i+1)+(j+1)) * determinante
 
-
+print("Llenando andjunta")
 adjunta[0][0] = determinante([[sistema[1][1], sistema[1][2]],[sistema[2][1], sistema[2][2]]])
 adjunta[0][1] = -determinante([[sistema[1][0], sistema[1][2]],[sistema[2][0], sistema[2][2]]])
 adjunta[0][2] = determinante([[sistema[1][0], sistema[1][1]],[sistema[2][0], sistema[2][1]]])
@@ -49,7 +57,8 @@ adjunta[2][0] = determinante([[sistema[0][1], sistema[0][2]],[sistema[1][1], sis
 adjunta[2][1] = -determinante([[sistema[0][0], sistema[0][2]],[sistema[1][0], sistema[1][2]]])
 adjunta[2][2] = determinante([[sistema[0][0], sistema[0][1]],[sistema[1][0], sistema[1][1]]])
 
-#prettyMatrix(adjunta)
+print("MATRIZ ADJUNTA")
+prettyMatrix(adjunta)
 
 traspuesta = [
     [0,0,0],
@@ -60,7 +69,8 @@ for i in range(3):
     for j in range(3):
         traspuesta[i][j] = adjunta[j][i]
 
-#prettyMatrix(traspuesta)
+print("MATRIZ TRANSPUESTA")
+prettyMatrix(traspuesta)
 
 
 inversa = [
@@ -73,4 +83,5 @@ for i in range(3):
     for j in range(3):
         inversa[i][j] = traspuesta[i][j] / detA
 
+print("MATRIZ INVERSA")
 prettyMatrix(inversa)

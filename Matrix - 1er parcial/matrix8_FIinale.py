@@ -47,10 +47,10 @@ sizeF = len(matrix[0])
 f1 = matrix[0]; f2 = matrix[1]; f3 = matrix[2]; f4 = matrix[3]
 f5 = matrix[4]; f6 = matrix[5]; f7 = matrix[6]; f8 = matrix[7]
 
-# From INT to FLOAT
-for i in range(sizeM):
-    for j in range (sizeF):
-        matrix[i][j] = float(matrix[i][j])
+# # From INT to FLOAT
+# for i in range(sizeM):
+#     for j in range (sizeF):
+#         matrix[i][j] = float(matrix[i][j])
 
 # Ingresar variables
 print(" Ingresa las VARIABLES de la matriz ".center(50,"-"))

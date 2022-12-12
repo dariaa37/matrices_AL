@@ -6,7 +6,9 @@ import copy
 
 def cerosLeft(matriz,fInicio,tamañoM,tamañoF,row,colum):        # Vuelve ceros columnas en diagonal izquierda
     for fila in range(fInicio,tamañoM):  # Se repite 3 veces a partir de 1
+        print(f"{matriz[fila][colum]} | {row} | {colum} ")
         coeficiente = matriz[fila][colum]*(-1)/row[colum]
+        print(f"coeficiente = {coeficiente}")
         for columna in range(0,tamañoF):       # Se repite 4 veces
             matriz[fila][columna] += row[columna] * coeficiente
 
@@ -15,6 +17,8 @@ def cerosRight(matriz,fFinal,tamañoM,tamañoF,row,colum):        # Vuelve 0 col
         coeficiente = matriz[fila][colum]*(-1)/row[colum]
         for columna in range(0,tamañoF):       # Se repite 4 veces
             matriz[fila][columna] += row[columna] * coeficiente
+
+
 
 def lonelyCero(cero,f,tam,columna):
     coef = cero[columna]*(-1)/f[columna]
@@ -68,11 +72,16 @@ cerosLeft(matrix,2,sizeM,sizeF,f2,1)
 print(" CERO 4 y 5: Fila 3 y 4 - Fila 2 * coeficiente ".center(95,"·")+"\n")
 theMatrix(matrix)
 
+#### SOLO PRUEBA -----------------------------
+# # COLUMNA 2 - Cero 6
+cerosLeft(matrix,3,sizeM,sizeF,f3,2)
+print(" CERO 4 y 5: Fila 3 y 4 - Fila 2 * coeficiente ".center(95,"·")+"\n")
+theMatrix(matrix)
 
-# COLUMNA 2 - Cero 6 (Único cero de la columna)
-lonelyCero(f4,f3,sizeF,2)     # único cero faltante de la columna
-print(" CERO 6: Fila 4 - Fila 3 * coeficiente ".center(95,"·")+"\n")
-theMatrix(matrix) 
+# # COLUMNA 2 - Cero 6 (Único cero de la columna)
+# lonelyCero(f4,f3,sizeF,2)     # único cero faltante de la columna
+# print(" CERO 6: Fila 4 - Fila 3 * coeficiente ".center(95,"·")+"\n")
+# theMatrix(matrix) 
 
 
 # # COLUMNA 3 - Ceros 7,8,9
